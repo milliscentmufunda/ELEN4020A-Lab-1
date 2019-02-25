@@ -29,20 +29,19 @@ vector<vector<int> > rank2TensorAdd(const vector<vector<int> >& A, const vector<
 
 vector<vector<int> > rank2TensorMult(const vector<vector<int> >& A, const vector<vector<int> >& B){
 
-	//vector<vector<int>> C(A.size())(B.size());
 	vector< vector<int> > C(A.size(), vector<int>(B.size()));
 
 	for(unsigned i = 0; i < A.size(); i++){
 
 		for(unsigned j = 0; j < A.size(); j++){
 
-            int c = 0;
+		    int c = 0;
 
-            for(unsigned k = 0; k < A.size(); k++){
+			for(unsigned k = 0; k < A.size(); k++){
 
-                c += A[i][k] * B[k][j];
+		        c += A[i][k] * B[k][j];
 
-            }
+		    }
 
 			C[i][j] = c;
 
@@ -125,11 +124,13 @@ int main(void){
 
         srand(time(NULL));
 
+	// Vectors defined for 2D Addition and Multiplication 
         vector<vector<int> > A;
         vector<vector<int> > B;
         vector<vector<int> > arrayMult2D;
         vector<vector<int> > arrayAdd2D;
 
+	// Filling 2D vectors with random numbers between 0 and 20
         for(int i = 0; i < N; i++){
             vector <int> temp1;
             vector <int> temp2;
@@ -143,14 +144,17 @@ int main(void){
             B.push_back(temp2);
         }
 
+	//Calling function for 2D Addition and multiplication
         arrayAdd2D = rank2TensorAdd(A,B);
         arrayMult2D = rank2TensorMult(A,B);
 
+	// Vectors defined for 3D Addition and Multiplication
         vector<vector<vector<int> > > C;
         vector<vector<vector<int> > > D;
         vector<vector<vector<int> > > arrayAdd3D;
         vector<vector<vector<int> > > arrayMult3D;
 
+	// Filling 3D vectors with random numbers between 0 and 20
         for(int k = 0; k < N; k++){
 
             vector<vector<int> > temp2D_1;
@@ -176,13 +180,14 @@ int main(void){
 
         }
 
-
+	//Calling function for 3D Addition and multiplication
         arrayAdd3D = rank3TensorAdd(C,D);
         arrayMult3D = rank3TensorMult(C,D);
 
         N+= 10;
     }
 
+	
 
 
 	return 0;
